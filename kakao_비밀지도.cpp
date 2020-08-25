@@ -18,65 +18,65 @@
 //
 // 접근
 // - 단순 시뮬레이션 접근
-//#include <iostream>
-//#include <string>
-//#include <vector>
-//
-//using namespace std;
-//
-//vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
-//    vector<string> answer;
-//
-//    for (int i = 0; i < n; i++)
-//    {
-//        int map_one = arr1[i];
-//        int map_two = arr2[i];
-//        vector<string> line_v;
-//
-//        for (int j = 0; j < n; j++)
-//        {
-//            int tmp_one = map_one % 2;
-//            int tmp_two = map_two % 2;
-//
-//            if (tmp_one || tmp_two)
-//                line_v.push_back("#");
-//            else
-//                line_v.push_back(" ");
-//            map_one /= 2;
-//            map_two /= 2;
-//        }
-//
-//        string line;
-//        while (!line_v.empty())
-//        {
-//            line.append(line_v.back());
-//            line_v.pop_back();
-//        }
-//        answer.push_back(line);
-//    }
-//
-//    return answer;
-//}
-//
-//int main(void)
-//{
-//
-//    int n = 5;
-//    vector<int> arr1;
-//    vector<int> arr2;
-//
-//    arr1.push_back(9);
-//    arr1.push_back(20);
-//    arr1.push_back(28);
-//    arr1.push_back(18);
-//    arr1.push_back(11);
-//
-//    arr2.push_back(30);
-//    arr2.push_back(1);
-//    arr2.push_back(21);
-//    arr2.push_back(17);
-//    arr2.push_back(28);
-//
-//    solution(n, arr1, arr2);
-//    return 0;
-//}
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
+    vector<string> answer;
+
+    for (int i = 0; i < n; i++)
+    {
+        int map_one = arr1[i];
+        int map_two = arr2[i];
+        vector<string> line_v;
+
+        for (int j = 0; j < n; j++)
+        {
+            int tmp_one = map_one % 2;
+            int tmp_two = map_two % 2;
+
+            if (tmp_one || tmp_two)
+                line_v.push_back("#");
+            else
+                line_v.push_back(" ");
+            map_one /= 2;
+            map_two /= 2;
+        }
+
+        string line;
+        while (!line_v.empty())
+        {
+            line.append(line_v.back());
+            line_v.pop_back();
+        }
+        answer.push_back(line);
+    }
+
+    return answer;
+}
+
+int main(void)
+{
+
+    int n = 5;
+    vector<int> arr1;
+    vector<int> arr2;
+
+    arr1.push_back(9);
+    arr1.push_back(20);
+    arr1.push_back(28);
+    arr1.push_back(18);
+    arr1.push_back(11);
+
+    arr2.push_back(30);
+    arr2.push_back(1);
+    arr2.push_back(21);
+    arr2.push_back(17);
+    arr2.push_back(28);
+
+    solution(n, arr1, arr2);
+    return 0;
+}

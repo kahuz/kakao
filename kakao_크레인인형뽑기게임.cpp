@@ -20,101 +20,101 @@
 //
 // 접근
 // - 단순 시뮬레이션으로 접근.
-//#include <iostream>
-//#include <vector>
-//
-//using namespace std;
-//
-//vector<int> basket;
-//
-//int solution(vector<vector<int>> board, vector<int> moves)
-//{
-//	int answer = 0;
-//	int crain_n = 0;
-//	for (int m_idx = 0; m_idx < moves.size(); m_idx++)
-//	{
-//		crain_n = moves[m_idx] - 1;
-//
-//		for (int b_idx = 0; b_idx < board.size(); b_idx++)
-//		{
-//			if (board[b_idx][crain_n] != 0)
-//			{
-//				if (basket.size() > 0 && basket.back() == board[b_idx][crain_n])
-//				{
-//					basket.pop_back();
-//					answer+= 2;
-//				}
-//				else
-//				{
-//					basket.push_back(board[b_idx][crain_n]);
-//				}
-//
-//				board[b_idx][crain_n] = 0;
-//				break;
-//			}
-//		}
-//	}
-//
-//	return answer;
-//}
-//int main(void)
-//{
-//	vector<vector<int>> t_board;
-//	vector<int> t_moves;
-//
-//	vector<int> b_1;
-//	vector<int> b_2;
-//	vector<int> b_3;
-//	vector<int> b_4;
-//	vector<int> b_5;
-//
-//	b_1.push_back(0);
-//	b_1.push_back(0);
-//	b_1.push_back(0);
-//	b_1.push_back(0);
-//	b_1.push_back(0);
-//
-//	b_2.push_back(0);
-//	b_2.push_back(0);
-//	b_2.push_back(1);
-//	b_2.push_back(0);
-//	b_2.push_back(3);
-//
-//
-//	b_3.push_back(0);
-//	b_3.push_back(2);
-//	b_3.push_back(5);
-//	b_3.push_back(0);
-//	b_3.push_back(1);
-//
-//	b_4.push_back(4);
-//	b_4.push_back(2);
-//	b_4.push_back(4);
-//	b_4.push_back(4);
-//	b_4.push_back(2);
-//
-//	b_5.push_back(3);
-//	b_5.push_back(5);
-//	b_5.push_back(1);
-//	b_5.push_back(3);
-//	b_5.push_back(1);
-//
-//	t_board.push_back(b_1);
-//	t_board.push_back(b_2);
-//	t_board.push_back(b_3);
-//	t_board.push_back(b_4);
-//	t_board.push_back(b_5);
-//
-//	t_moves.push_back(1);
-//	t_moves.push_back(5);
-//	t_moves.push_back(3);
-//	t_moves.push_back(5);
-//	t_moves.push_back(1);
-//	t_moves.push_back(2);
-//	t_moves.push_back(1);
-//	t_moves.push_back(4);
-//
-//	cout << solution(t_board, t_moves) << endl;
-//
-//	return 0;
-//}
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> basket;
+
+int solution(vector<vector<int>> board, vector<int> moves)
+{
+	int answer = 0;
+	int crain_n = 0;
+	for (int m_idx = 0; m_idx < moves.size(); m_idx++)
+	{
+		crain_n = moves[m_idx] - 1;
+
+		for (int b_idx = 0; b_idx < board.size(); b_idx++)
+		{
+			if (board[b_idx][crain_n] != 0)
+			{
+				if (basket.size() > 0 && basket.back() == board[b_idx][crain_n])
+				{
+					basket.pop_back();
+					answer+= 2;
+				}
+				else
+				{
+					basket.push_back(board[b_idx][crain_n]);
+				}
+
+				board[b_idx][crain_n] = 0;
+				break;
+			}
+		}
+	}
+
+	return answer;
+}
+int main(void)
+{
+	vector<vector<int>> t_board;
+	vector<int> t_moves;
+
+	vector<int> b_1;
+	vector<int> b_2;
+	vector<int> b_3;
+	vector<int> b_4;
+	vector<int> b_5;
+
+	b_1.push_back(0);
+	b_1.push_back(0);
+	b_1.push_back(0);
+	b_1.push_back(0);
+	b_1.push_back(0);
+
+	b_2.push_back(0);
+	b_2.push_back(0);
+	b_2.push_back(1);
+	b_2.push_back(0);
+	b_2.push_back(3);
+
+
+	b_3.push_back(0);
+	b_3.push_back(2);
+	b_3.push_back(5);
+	b_3.push_back(0);
+	b_3.push_back(1);
+
+	b_4.push_back(4);
+	b_4.push_back(2);
+	b_4.push_back(4);
+	b_4.push_back(4);
+	b_4.push_back(2);
+
+	b_5.push_back(3);
+	b_5.push_back(5);
+	b_5.push_back(1);
+	b_5.push_back(3);
+	b_5.push_back(1);
+
+	t_board.push_back(b_1);
+	t_board.push_back(b_2);
+	t_board.push_back(b_3);
+	t_board.push_back(b_4);
+	t_board.push_back(b_5);
+
+	t_moves.push_back(1);
+	t_moves.push_back(5);
+	t_moves.push_back(3);
+	t_moves.push_back(5);
+	t_moves.push_back(1);
+	t_moves.push_back(2);
+	t_moves.push_back(1);
+	t_moves.push_back(4);
+
+	cout << solution(t_board, t_moves) << endl;
+
+	return 0;
+}
