@@ -120,3 +120,66 @@ int main(void)
     solution(q7);
     return 0;
 }
+// 접근2
+// - 정규표현식을 이용한 접근
+#include <iostream>
+#include <string>
+#include <queue>
+#include <regex>
+
+using namespace std;
+
+int solution(string dartResult) {
+    int answer = 0;
+    int score[3] = { 0 };
+    int score_idx = 0;
+    regex dart_pattern("(([0-9]+)(S|D|T)(\\*|#)*)");
+
+    sregex_iterator it(dartResult.begin(), dartResult.end(), dart_pattern);
+    sregex_iterator end;
+
+    while (it != end)
+    {
+        smatch m = *it;
+
+        int num = stoi((string)m[2]);
+
+        if (m[3] == 'D')
+            num = num * num;
+        else if (m[3] == 'T')
+            num = num * num * num;
+        
+        if (m[4] == '*')
+        {
+            if (score_idx > 0)
+                score[score_idx - 1] *= 2;
+            num *= 2;
+        }
+        else if (m[4] == '#')
+            num *= -1;
+
+        score[score_idx] = num;
+        it++;
+        score_idx++;
+    }
+
+    for (int i = 0; i < 3; i++)
+        answer += score[i];
+    return answer;
+}
+
+int main(void)
+{
+    string q1 = "1S2D*3T";
+    string q2 = "1D2S#10S";
+    string q3 = "1D2S0T";
+    string q4 = "1S*2T*3S";
+    string q5 = "1D#2S*3S";
+    string q6 = "1T2D3D#";
+    string q7 = "1D2S3T*";
+    string dartResult = "1D2S3T*";
+
+ 
+    solution(q2);
+    return 0;
+}
